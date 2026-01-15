@@ -1,9 +1,11 @@
-import Cursor from "@/components/Cursor";
+import HomePage from "@/pages/Home/HomePage";
+import RecentWorks from "@/pages/RecentWorks/RecentWorks";
 
 export default function Home() {
   return (
-    <div className="h-screen">
-      <Cursor />
-    </div>
+    <>
+      <HomePage />
+      <RecentWorks />
+    </>
   );
 }
