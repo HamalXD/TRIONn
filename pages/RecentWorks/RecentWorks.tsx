@@ -70,7 +70,7 @@ const RecentWorks = () => {
               }`}
             >
               <Image
-                src={`/image-${num}.png`}
+                src={`/macbook-${num}.png`}
                 alt="work"
                 width={900}
                 height={550}
