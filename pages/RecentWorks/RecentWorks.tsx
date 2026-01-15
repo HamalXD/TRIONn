@@ -71,7 +71,6 @@ const RecentWorks = () => {
             >
               <Image
                 src={`/image-${num}.png`}
-                // src={"https://placehold.co/600"}
                 alt="work"
                 width={900}
                 height={550}
@@ -84,12 +83,11 @@ const RecentWorks = () => {
                 i % 2 === 0 ? "md:order-2" : "md:order-1"
               }`}
             >
-              <h3 className="text-xl font-semibold mb-3">Project 0{num}</h3>
+              <h3 className="text-xl font-semibold mb-3">Project {num}</h3>
               <p className="text-sm md:text-base mb-5 text-neutral-500">
-                A bold, conversion-focused digital experience crafted to make
-                your brand stand out in the noisy online world.
+                Lorem ipsum dolor,
               </p>
-              <Button text="View case study" />
+              <Button text="View project" />
             </div>
           </div>
         ))}

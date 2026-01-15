@@ -1,4 +1,4 @@
-import DraggableCards from "@/components/DragableCards";
+import DraggableCards from "@/pages/TestimonialCards/DragableCards";
 import AwardCards from "@/pages/AwardCards/AwardCards";
 import HomePage from "@/pages/Home/HomePage";
 import Partners from "@/pages/Partners/Partners";
