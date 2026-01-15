@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Cursor />
           </div>
           <TopBar />

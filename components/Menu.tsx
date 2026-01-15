@@ -1,56 +1,54 @@
-import Link from "next/link";
-import { useState } from "react";
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
 
 export default function Menu() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  const menuItems = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Services", href: "#" },
-    { label: "Contact", href: "#" },
-  ];
+  useEffect(() => {
+    if (!menuRef.current) return;
+
+    gsap.to(menuRef.current, {
+      x: open ? "0%" : "100%",
+      duration: 0.5,
+      ease: "power3.inOut",
+    });
+  }, [open]);
 
   return (
-    <div className="flex px-4 sm:px-6 lg:px-8">
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between gap-3 items-center h-16"
+    <>
+      {/* HAMBURGER BUTTON */}
+      <button
+        onClick={() => setOpen(true)}
+        className="flex flex-col gap-1.5"
+        aria-label="Open menu"
       >
-        <div className="shrink-0 font-bold text-xl">
-          {isOpen ? "Close" : "Menu"}
-        </div>
+        <span className="h-[2px] w-6 bg-white" />
+        <span className="h-[2px] w-6 bg-white" />
+        <span className="h-[2px] w-6 bg-white" />
+      </button>
 
-        <button className="focus:outline-none" aria-label="Toggle menu">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+      {/* FULLSCREEN MENU */}
+      <div
+        ref={menuRef}
+        className="fixed top-0 right-0 z-50 h-screen w-full translate-x-full bg-black px-8 pt-28"
+      >
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-6 right-6 text-white text-2xl"
+        >
+          ✕
         </button>
-      </div>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 mt-14 pb-4 flex flex-col">
-          {menuItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="block py-2 px-4 transition"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
+        <nav className="flex flex-col gap-8 text-3xl font-semibold text-white">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </>
   );
 }
