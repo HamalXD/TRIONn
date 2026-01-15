@@ -1,3 +1,7 @@
 export default function TeamPage() {
-  return <div className="h-screen">TeamPage</div>;
+  return (
+    <div className="flex items-center justify-center w-full h-screen">
+      TeamPage
+    </div>
+  );
 }

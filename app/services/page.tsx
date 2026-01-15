@@ -1,3 +1,7 @@
 export default function ServicesPage() {
-  return <div className="h-screen">ServicesPage</div>;
+  return (
+    <div className="flex items-center justify-center w-full h-screen">
+      ServicesPage
+    </div>
+  );
 }
