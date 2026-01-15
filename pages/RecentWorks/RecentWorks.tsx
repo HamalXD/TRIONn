@@ -39,8 +39,22 @@ const RecentWorks = () => {
   }, []);
 
   return (
-    <div className="px-6 mt-0 md:mt-40 overflow-x-hidden">
-      <div className="text-2xl font-semibold mb-10">Recent Works</div>
+    <div className="px-6 mt-0 md:mt-48 overflow-x-hidden">
+      <div className="relative flex flex-col md:flex-row md:items-end md:justify-between mb-10 pt-20 md:pt-52 gap-6">
+        <div className="flex flex-col gap-2">
+          <span className="text-4xl sm:text-6xl md:text-9xl font-semibold leading-tight md:leading-none">
+            Recent <br className="hidden sm:block" /> Work
+          </span>
+          <span className="text-base sm:text-lg md:text-2xl">
+            In the creative wilderness,
+            <br className="hidden sm:block" /> clients find our work truly
+            <br className="hidden sm:block" /> beloved.
+          </span>
+        </div>
+        <div className="mt-6 md:mt-0 md:absolute md:bottom-0 md:right-0">
+          <Button text="Explore Work" />
+        </div>
+      </div>
       <div className="flex flex-col gap-32 py-24">
         {[1, 2, 3].map((num, i) => (
           <div

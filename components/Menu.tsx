@@ -11,8 +11,8 @@ export default function Menu() {
     if (!menuRef.current) return;
 
     gsap.to(menuRef.current, {
-      x: open ? "0%" : "100%",
-      duration: 0.5,
+      y: open ? "0%" : "-100%",
+      duration: 0.8,
       ease: "power3.inOut",
     });
   }, [open]);
@@ -33,7 +33,7 @@ export default function Menu() {
       {/* FULLSCREEN MENU */}
       <div
         ref={menuRef}
-        className="fixed top-0 right-0 z-50 h-screen w-full translate-x-full bg-black px-8 pt-28"
+        className="fixed top-0 left-0 z-50 h-screen w-full -translate-y-full bg-black px-8 pt-28"
       >
         <button
           onClick={() => setOpen(false)}

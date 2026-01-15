@@ -7,7 +7,6 @@ type ButtonProps = {
 };
 
 const Button = ({ text, onCLick }: ButtonProps) => {
-  const { theme } = useTheme();
   return (
     <button
       onClick={onCLick}
